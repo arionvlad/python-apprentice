@@ -1,7 +1,7 @@
 # Python Project Template
 
 
-## Quenstions
+## Questions
 
 What is pyproject.toml?
 Why does src exist?
@@ -23,18 +23,7 @@ The [tool] table has tool-specific subtables, e.g., [tool.hatch], [tool.black], 
 
 The “src layout” deviates from the flat layout by moving the code that is intended to be importable (i.e. import awesome_package, also known as import packages) into a subdirectory. This subdirectory is typically named src/, hence “src layout”.
 
-Here’s a breakdown of the important behaviour differences between the src layout and the flat layout:
-
-The src layout requires installation of the project to be able to run its code, and the flat layout does not.
-This means that the src layout involves an additional step in the development workflow of a project (typically, an editable installation is used for development and a regular installation is used for testing).
-
-The src layout helps prevent accidental usage of the in-development copy of the code.
-This is relevant since the Python interpreter includes the current working directory as the first item on the import path. This means that if an import package exists in the current working directory with the same name as an installed import package, the variant from the current working directory will be used. This can lead to subtle misconfiguration of the project’s packaging tooling, which could result in files not being included in a distribution.
-
-The src layout helps avoid this by keeping import packages in a directory separate from the root directory of the project, ensuring that the installed copy is used.
-
 The src layout helps enforce that an editable installation is only able to import files that were meant to be importable.
-This is especially relevant when the editable installation is implemented using a path configuration file that adds the directory to the import path.
 
 The flat layout would add the other project files (eg: README.md, tox.ini) and packaging/tooling configuration files (eg: setup.py, noxfile.py) on the import path. This would make certain imports work in editable installations but not regular installations.
 

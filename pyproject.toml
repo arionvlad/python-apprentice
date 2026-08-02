@@ -1,5 +1,5 @@
 [project]
-name = "python-apprentice"
+name = "python_apprentice"
 version = "0.1.0"
 description = "Exercises and projects from my Python apprenticeship program."
 authors = [
