@@ -1,12 +1,5 @@
 """Python Apprentice package."""
 
-from __future__ import annotations
+from .greetings import greet
 
-
-def greet(name: str) -> str:
-    return f"Hello, {name}!"
-
-
-from .main import main
-
-__all__ = ["greet", "main"]
+__all__ = ["greet"]
