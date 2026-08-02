@@ -1,5 +1,9 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "python_apprentice"
+name = "python-apprentice"
 version = "0.1.0"
 description = "Exercises and projects from my Python apprenticeship program."
 authors = [
@@ -11,3 +15,6 @@ dependencies = []
 
 [project.urls]
 Repository = "https://github.com/arionvlad/python-apprentice"
+
+[tool.setuptools.packages.find]
+where = ["src"]
