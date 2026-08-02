@@ -1,4 +1,4 @@
-"""app package."""
+"""Python Apprentice package."""
 
 from __future__ import annotations
 
