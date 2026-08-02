@@ -1,4 +1,4 @@
-from python_apprentice.greetings import greet
+from python_apprentice import greet
 
 
 def test_greet_returns_personalized_message() -> None:
