@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from . import greet
+from .greetings import greet
 
 
 def main() -> None:
