@@ -1,3 +1,5 @@
+import math
+
 import pytest
 
 from python_apprentice.math_utils import (
@@ -28,15 +30,33 @@ def test_celsius_to_fahrenheit_rejects_below_absolute_zero() -> None:
 def test_celsius_to_fahrenheit_rejects_unreasonable_temperature() -> None:
     with pytest.raises(
         ValueError,
-        match="Temperature above 1,000,000°C is not physically reasonable.",
+        match="Temperature above Planck Temperature is not physically reasonable",
     ):
-        celsius_to_fahrenheit(1_000_000.01)
+        celsius_to_fahrenheit(1.5e32)
 
 
 def test_fahrenheit_to_celsius() -> None:
     assert fahrenheit_to_celsius(32) == 0
     assert fahrenheit_to_celsius(212) == 100
     assert fahrenheit_to_celsius(-40) == -40
+
+
+def test_celsius_to_fahrenheit_boundary_values() -> None:
+    assert celsius_to_fahrenheit(-273.15) == pytest.approx(-459.67)
+    assert celsius_to_fahrenheit(1e6) == 1_800_032.0
+
+
+def test_fahrenheit_to_celsius_boundary_values() -> None:
+    assert fahrenheit_to_celsius(-459.67) == -273.15
+    assert fahrenheit_to_celsius(1e6) == 555_537.7777777778
+
+
+def test_fahrenheit_to_celsius_rejects_unreasonable_temperature() -> None:
+    with pytest.raises(
+        ValueError,
+        match="Temperature above Planck Temperature is not physically reasonable",
+    ):
+        fahrenheit_to_celsius(2.1e32)
 
 
 def test_fahrenheit_to_celsius_positive_fraction() -> None:
@@ -51,22 +71,14 @@ def test_fahrenheit_to_celsius_rejects_below_absolute_zero() -> None:
         fahrenheit_to_celsius(-459.68)
 
 
-def test_fahrenheit_to_celsius_rejects_unreasonable_temperature() -> None:
-    with pytest.raises(
-        ValueError,
-        match="Temperature above 1,000,000°F is not physically reasonable.",
-    ):
-        fahrenheit_to_celsius(1_000_000.01)
-
-
 def test_circle_area() -> None:
-    assert circle_area(1) == 3.141592653589793
+    assert circle_area(1) == pytest.approx(math.pi)
     assert circle_area(0) == 0
-    assert circle_area(2) == 12.566370614359172
+    assert circle_area(2) == pytest.approx(4 * math.pi)
 
 
 def test_circle_area_fractional_radius() -> None:
-    assert circle_area(0.5) == 0.7853981633974483
+    assert circle_area(0.5) == pytest.approx(0.25 * math.pi)
 
 
 def test_circle_area_rejects_negative_radius() -> None:

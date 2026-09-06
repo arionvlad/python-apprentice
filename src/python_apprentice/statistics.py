@@ -1,3 +1,11 @@
+"""
+This module provides functions for basic statistical calculations.
+Functions:
+- mean(numbers: list[float]) -> float: Calculates the mean of a list of numbers.
+- median(numbers: list[float]) -> float: Calculates the median of a list of numbers.
+"""
+
+
 def mean(numbers: list[float]) -> float:
     if not numbers:
         raise ValueError("mean requires at least one number")
