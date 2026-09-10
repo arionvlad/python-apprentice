@@ -1,14 +1,21 @@
 def mean(numbers: list[float]) -> float:
+    """Calculates the mean of a list of numbers.
+    Raises:
+        ValueError: for empty input
+    """
+
     if not numbers:
         raise ValueError("mean requires at least one number")
 
     return sum(numbers) / len(numbers)
 
 
-"""Calculates the mean of a list of numbers. ValueError for empty input"""
-
-
 def median(numbers: list[float]) -> float:
+    """Calculates the median of a list of numbers.
+    Raises:
+        ValueError: for empty input
+    """
+
     if not numbers:
         raise ValueError("median requires at least one number")
 
@@ -20,6 +27,3 @@ def median(numbers: list[float]) -> float:
         return sorted_numbers[mid]
 
     return (sorted_numbers[mid - 1] + sorted_numbers[mid]) / 2
-
-
-"""Calculates the median of a list of numbers. ValueError for empty input"""

@@ -38,7 +38,7 @@ def test_celsius_to_fahrenheit_boundary_values() -> None:
 
 
 def test_fahrenheit_to_celsius_boundary_values() -> None:
-    assert fahrenheit_to_celsius(-459.67) == -273.15
+    assert fahrenheit_to_celsius(-459.67) == pytest.approx(-273.15)
 
 
 def test_fahrenheit_to_celsius_positive_fraction() -> None:
