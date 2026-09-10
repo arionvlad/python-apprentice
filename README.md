@@ -48,12 +48,11 @@ You can create a .gitignore file in your repository's root directory to tell Git
 
 ## Answers
 
-### Printing
-The functions return a value because the functions return values are set to a specific datatype. Beside this, the print function is not used in them.
+### Returning a value
+The function returns a value because this makes it reusable and composable. The caller can choose to print the result, store it, compare it, pass it to another function, or serialize it. Printing inside the function would create a side effect and limit how the result can be used.
 
 ### raising an exception
-It is always better to know exactly what went wrong inside a function in order to correct it or the setup for it. Invalid radius is a to general way of error handling.
-
+Raising an exception is better than returning  "Invalid radius"  because it clearly communicates that an error occurred. It allows the caller to identify the specific problem and handle it appropriately, rather than treating a general error message as a normal return value.
 
 ### general function or specific function
 Each function should respect the Single Responsability Principal in which they person one, and only one, action. This way the code is cleaner and clearer and also refactoring or fixing it is way more easier because the area of interest can be better pin-pointed.
