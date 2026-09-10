@@ -7,7 +7,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
     return (celsius * 9 / 5) + 32
 
 
-"""Used to convert Celsius to Fahrenheit. Raises ValueError for temperatures below absolute zero"""
+"""Convert Celsius to Fahrenheit. ValueError for temperatures below absolute zero"""
 
 
 def fahrenheit_to_celsius(fahrenheit: float) -> float:
@@ -16,7 +16,7 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
     return (fahrenheit - 32) * 5 / 9
 
 
-"""Used to convert Fahrenheit to Celsius. Raises ValueError for temperatures below absolute zero"""
+"""Convert Fahrenheit to Celsius. ValueError for temperatures below absolute zero"""
 
 
 def circle_area(radius: float) -> float:
@@ -25,4 +25,4 @@ def circle_area(radius: float) -> float:
     return math.pi * radius**2
 
 
-"""Calculates the area of a circle given its radius. Raises ValueError for negative radius"""
+"""Calculates the area of a circle given its radius. ValueError for negative radius"""

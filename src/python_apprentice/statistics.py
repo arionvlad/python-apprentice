@@ -5,7 +5,7 @@ def mean(numbers: list[float]) -> float:
     return sum(numbers) / len(numbers)
 
 
-"""Calculates the mean of a list of numbers. Raises ValueError for empty input"""
+"""Calculates the mean of a list of numbers. ValueError for empty input"""
 
 
 def median(numbers: list[float]) -> float:
@@ -22,4 +22,4 @@ def median(numbers: list[float]) -> float:
     return (sorted_numbers[mid - 1] + sorted_numbers[mid]) / 2
 
 
-"""Calculates the median of a list of numbers. Raises ValueError for empty input"""
+"""Calculates the median of a list of numbers. ValueError for empty input"""
