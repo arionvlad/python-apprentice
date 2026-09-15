@@ -1,5 +1,7 @@
 # Python Apprentice
 
+## Module 1
+
 ## Questions
 
 1. What is `pyproject.toml`?
@@ -33,3 +35,28 @@ Python’s special __init__.py file marks a directory as a regular Python packag
 ### `.gitignore`
 
 You can create a .gitignore file in your repository's root directory to tell Git which files and directories to ignore when you make a commit. To share the ignore rules with other users who clone the repository, commit the .gitignore file into your repository.
+
+
+## Module 2
+
+## Questions
+
+1. Why does this function return a value instead of printing?
+2. Why is raising an exception better than returning "Invalid radius"?
+3. Would you rather have: calculate_everything(...) or circle_area(...), fahrenheit_to_celsius(...). Why?
+4. How easy would these functions be to test? Why?
+
+## Answers
+
+### Returning a value
+The function returns a value because this makes it reusable and composable. The caller can choose to print the result, store it, compare it, pass it to another function, or serialize it. Printing inside the function would create a side effect and limit how the result can be used.
+
+### raising an exception
+Raising an exception is better than returning  "Invalid radius"  because it clearly communicates that an error occurred. It allows the caller to identify the specific problem and handle it appropriately, rather than treating a general error message as a normal return value.
+
+### general function or specific function
+Each function should respect the Single Responsability Principal in which they person one, and only one, action. This way the code is cleaner and clearer and also refactoring or fixing it is way more easier because the area of interest can be better pin-pointed.
+
+
+### function testing
+The tests for these functions were pretty straight forward as their logic is tested againts an expected result that the formulas should produce.
