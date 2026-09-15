@@ -60,3 +60,27 @@ Each function should respect the Single Responsability Principal in which they p
 
 ### function testing
 The tests for these functions were pretty straight forward as their logic is tested againts an expected result that the formulas should produce.
+
+
+## Module 2 — Assignment 2: Function Composition
+
+## Questions
+1. Why should calculate_total() call the smaller functions instead of repeating their formulas?
+Because it keeps the code modular, readable, and easier to verify.
+
+2. Should calculate_discount() return the discount amount or the price after discount? Which contract did you choose, and why?
+I chose to make it return the discount amount, not the discounted price.
+That contract is clearer because:
+- the function name and docstring say it calculates the discount amount
+- the caller can then do:
+    - subtotal - discount
+    - then tax on the discounted subtotal
+- it keeps each function focused on one calculation
+
+3. What should calculate_subtotal([]) do? Why?
+It should raise ValueError("Price list cannot be empty").
+That is the safest behavior because an empty list is not a valid input for a total calculation. Returning 0.0 might hide a real bug or invalid order state. Raising an exception makes the caller handle the invalid case explicitly and prevents silent bad data.
+
+4. If tax rules became much more complicated later, which part of this design would need to change?
+The part that would need to change is the tax-specific logic, especially calculate_tax() and possibly the composition in calculate_total().
+That’s the benefit of the design: the calculation pipeline stays the same, but the tax rule implementation can become more complex without changing the overall structure.
